@@ -11,15 +11,17 @@ body {
   padding: 0;
 }
 
-.gradient-bg {
+.landing-bg {
   background: url("./assets/images/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.background-bg {
-  z-index: 1;
-}
-.front-bg {
-  z-index: 10;
+.card-gradient-bg {
+  background: linear-gradient(
+    97.19deg,
+    #4646f5 1.13%,
+    #8f8ff9 88.99%,
+    #ffffff 145.31%
+  );
 }

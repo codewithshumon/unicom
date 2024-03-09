@@ -1,5 +1,4 @@
-import brandName from "./../../../public/brandName.svg";
-import brandLogo from "./../../../public/brandLogo.svg";
+import { brandLogo, brandName } from "../../../public/svg";
 
 const Header = () => {
   return (
