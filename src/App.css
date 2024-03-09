@@ -3,3 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html,
+body {
+  font-family: "Darker Grotesque", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.gradient-bg {
+  background: url("./assets/images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-bg {
+  z-index: 1;
+}
+.front-bg {
+  z-index: 10;
+}

@@ -1,7 +1,31 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
+import FundingOptions from "./pages/FundingOptions";
+import ReferralEngine from "./pages/ReferralEngine";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import Header from "./pages/header/Header";
+
 function App() {
-  return <div className=" w-full"></div>;
+  return (
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/funding-options" element={<FundingOptions />} />
+          <Route path="/referralengine" element={<ReferralEngine />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
