@@ -8,6 +8,7 @@ import ReferralEngine from "./pages/ReferralEngine";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Header from "./pages/header/Header";
+import Footer from "./pages/footer/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/referralengine" element={<ReferralEngine />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
