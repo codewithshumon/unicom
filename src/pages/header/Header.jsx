@@ -3,12 +3,46 @@ import { useLocation } from "react-router-dom";
 
 import { brandLogo, brandName } from "../../../public/svg";
 import { UnionUpDownArrow } from "../../components/global";
+import { useState } from "react";
 
 const Header = () => {
   const { pathname } = useLocation();
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
     <header className="w-full h-[10vh] absolute top-0 left-0 mt-[2%] z-[999]">
-      <div className=" flex items-center justify-between px-[5%]">
+      {isOpenMenu && (
+        <div className=" flex items-center justify-between px-[5%]">
+          <Link to="/" className=" flex items-center gap-[1.5vw]">
+            <img
+              src={brandLogo}
+              alt={"brand logo"}
+              className="w-[4vw] h-[4vw]"
+            />
+            <div className=" ">
+              <img src={brandName} className="w-[10vw] h-[auto] bg-cover" />
+            </div>
+          </Link>
+          <div className="h-full flex items-center gap-[1.5vw]">
+            <div>
+              <h1 className="text-[1.5vw] text-[#FFFFFF] font-[600]">Close</h1>
+            </div>
+            <div
+              onClick={() => setIsOpenMenu(!isOpenMenu)}
+              className="w-[4vw] h-[4vw] rounded-full bg-[#74FFFE] flex items-center justify-center cursor-pointer "
+            >
+              <button className="flex flex-col gap-[1vh] w-[65%]  ">
+                <div className=" w-full h-[.5vh] bg-[#292967] rounded-full"></div>
+                <div className=" w-full h-[.5vh] bg-[#292967] rounded-full"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <div
+        className={`${
+          isOpenMenu ? "hidden" : "block"
+        } flex items-center justify-between px-[5%]`}
+      >
         <Link to="/" className=" flex items-center gap-[1.5vw]">
           <img src={brandLogo} alt={"brand logo"} className="w-[4vw] h-[4vw]" />
           <div className=" ">
@@ -35,7 +69,10 @@ const Header = () => {
           <div>
             <h1 className="text-[1.5vw] text-[#282866] font-[600]">Menu</h1>
           </div>
-          <div className="w-[4vw] h-[4vw] rounded-full bg-[#282866] flex items-center justify-center cursor-pointer ">
+          <div
+            onClick={() => setIsOpenMenu(!isOpenMenu)}
+            className="w-[4vw] h-[4vw] rounded-full bg-[#282866] flex items-center justify-center cursor-pointer "
+          >
             <button className="flex flex-col gap-[1vh] w-[65%]  ">
               <div className=" w-full h-[.5vh] bg-[#74FFFE] rounded-full"></div>
               <div className=" w-full h-[.5vh] bg-[#74FFFE] rounded-full"></div>
