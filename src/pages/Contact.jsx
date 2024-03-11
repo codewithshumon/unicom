@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import { subscribArrow } from "../../public/svg";
+import { useState } from "react";
+
+import { OutLinkArrow } from "../components/global";
 
 const Contact = () => {
+  const [isHoverMail, setIsHoverMail] = useState(false);
+  const [isHoverMap, setIsHoverMap] = useState(false);
   return (
     <div className=" w-full h-full">
       <section className=" w-full h-full ">
@@ -16,19 +20,26 @@ const Contact = () => {
           </div>
           <div className=" w-[40vw]">
             <div className=" w-[45%] flex flex-col gap-[5vh] text-[4vh] text-[#282866] ">
-              <div className="flex flex-col">
-                <div className="flex gap-[1vw]">
+              <div className="flex flex-col gap-[1vh]">
+                <div
+                  onMouseEnter={() => setIsHoverMail(true)}
+                  onMouseLeave={() => setIsHoverMail(false)}
+                  className="flex gap-[2vh] "
+                >
                   <Link
                     to={"mailto:mia@unicom.au"}
-                    className="hover:text-[#8282FF]"
+                    className={`${
+                      isHoverMail ? "text-[#8282FF]" : "text-[#282866]"
+                    }`}
                   >
                     mia@unicom.au
                   </Link>
-                  <img
-                    src={subscribArrow}
-                    alt="union Arrow"
-                    className="w-[.8vw] font-[700] hover:text-[#8282FF]"
-                  />
+                  <div className="">
+                    <OutLinkArrow
+                      color={`${isHoverMail ? "#8282FF" : "#282866"}`}
+                      size="15"
+                    />
+                  </div>
                 </div>
 
                 <p className="hover:text-[#8282FF]">+61 410 540 040</p>
@@ -36,13 +47,24 @@ const Contact = () => {
               <p className="hover:text-[#8282FF]">
                 2/222 Kings Way South Melbourne 3205 Victoria Australia
               </p>
-              <div className="flex gap-[1vw]">
-                <p className="hover:text-[#8282FF]">Map</p>
-                <img
-                  src={subscribArrow}
-                  alt="union Arrow"
-                  className="w-[.8vw] font-[700] hover:text-[#8282FF]"
-                />
+              <div
+                onMouseEnter={() => setIsHoverMap(true)}
+                onMouseLeave={() => setIsHoverMap(false)}
+                className="flex gap-[2vh] cursor-pointer"
+              >
+                <p
+                  className={`${
+                    isHoverMap ? "text-[#8282FF]" : "text-[#282866]"
+                  }`}
+                >
+                  Map
+                </p>
+                <div className="">
+                  <OutLinkArrow
+                    color={`${isHoverMap ? "#8282FF" : "#282866"}`}
+                    size="15"
+                  />
+                </div>
               </div>
             </div>
           </div>
