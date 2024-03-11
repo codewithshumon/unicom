@@ -1,7 +1,15 @@
-import { unionArrow } from "../../../public/svg";
+import { useLocation } from "react-router-dom";
+
 import { footerBlob } from "../../assets/images";
+import { FindGrants } from "../../components/global";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
+  if (pathname === "/contact") {
+    return null;
+  }
+
   return (
     <div>
       <div className=" w-full h-full landing-bg py-[10vh] ">
@@ -16,21 +24,7 @@ const Footer = () => {
                   <h1 className="text-[#282866] font-[600] text-[4vw] text-center leading-none">
                     Keep your business stable during uncertain times.
                   </h1>
-                  <div>
-                    <div className="flex items-center font-DmSans font-[400] text-[2vh] text-[#282866] gap-[3vh]">
-                      <button className=" w-[10vh] h-[10vh] p-[3vh]  bg-[#EDF82D] flex items-center justify-center rounded-full">
-                        <img
-                          src={unionArrow}
-                          alt="union Arrow"
-                          className=" text-white"
-                        />
-                      </button>
-                      <p className="">
-                        Find grants, rebates <br /> and VC funding. <br />{" "}
-                        Success fee only*
-                      </p>
-                    </div>
-                  </div>
+                  <FindGrants />
                 </div>
               </div>
             </div>

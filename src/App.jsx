@@ -21,7 +21,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/funding-options" element={<FundingOptions />} />
-          <Route path="/referralengine" element={<ReferralEngine />} />
+          <Route path="/referral-engine" element={<ReferralEngine />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

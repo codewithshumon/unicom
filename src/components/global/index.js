@@ -1,4 +1,6 @@
 import UnionCardArrow from "./UnionCardArrow";
 import BrandLogo from "./BrandLogo";
+import UnionUpDownArrow from "./UnionUpDownArrow";
+import FindGrants from "./FindGrants";
 
-export { BrandLogo, UnionCardArrow };
+export { BrandLogo, UnionCardArrow, UnionUpDownArrow, FindGrants };

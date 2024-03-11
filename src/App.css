@@ -26,3 +26,12 @@ body {
     #ffffff 145.31%
   );
 }
+
+.refarrel-engine-gradient {
+  background: linear-gradient(
+    301.42deg,
+    #4f4fff 59.91%,
+    #b6b6ff 175.14%,
+    #ffffff 175.15%
+  );
+}

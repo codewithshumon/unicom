@@ -17,7 +17,7 @@ const AboutUs = () => {
                 <div className=" w-[79%] text-[2vw] text-[#141041] h-full flex  flex-col justify-between ">
                   <p>
                     Our story began when our founders {""}
-                    <span className="text-[#8282FF]">Mia Bowyer</span> and
+                    <span className="text-[#8282FF]">Mia Bowyer</span> and {""}
                     <span className="text-[#8282FF]">
                       Stevie Kimonides
                     </span>{" "}
