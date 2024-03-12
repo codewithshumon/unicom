@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 
-import { brandLogo, brandName } from "../../../public/svg";
-import { UnionUpDownArrow } from "../../components/global";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { brandName, brandNameWite } from "../../../public/svg";
+import { BrandLogo, UnionUpDownArrow } from "../../components/global";
+import { useMemo, useRef, useState } from "react";
 import Menu from "./Menu";
 
 const Header = () => {
@@ -11,82 +11,52 @@ const Header = () => {
 
   const tl = useRef(gsap.timeline());
 
-  console.log("isOpenMenu", isOpenMenu);
-
-  useEffect(() => {
-    tl.current
-      .to(".menu-bar-one", { rotateX: 45 })
-      .to(".menu-bar-two", { duration: 0, rotateX: -45 });
-  }, []);
+  tl.current
+    .to(".menu-bar-one", { rotate: 45, y: 4 })
+    .to(".menu-bar-two", { rotate: -45, y: -4 }, "-=0.3");
 
   useMemo(() => {
     if (isOpenMenu) {
-      tl.current.play();
-      document.body.style.overflow = "hidden";
+      tl.current.pause(1).play();
     } else {
       tl.current.pause(1).reverse();
-      document.body.style.overflow = "unset";
     }
+    console.log("isOpenMenu", isOpenMenu);
   }, [isOpenMenu]);
 
   return (
     <>
       <header className="w-full h-[10vh] absolute top-0 left-0 mt-[2%] z-[999] select-none">
-        {isOpenMenu && (
-          <nav className="flex items-center justify-between px-[5%]">
-            <Link to="/" className=" flex items-center gap-[1.5vw]">
-              <img
-                src={brandLogo}
-                alt={"brand logo"}
-                className="w-[4vw] h-[4vw]"
-              />
-              <div className=" ">
-                <img src={brandName} className="w-[10vw] h-[auto] bg-cover" />
-              </div>
-            </Link>
-            <div className="h-full flex items-center gap-[1.5vw]">
-              <div>
-                <h1 className="text-[1.5vw] text-[#FFFFFF] font-[600]">
-                  Close
-                </h1>
-              </div>
-              <div
-                onClick={() => setIsOpenMenu(!isOpenMenu)}
-                className="w-[4vw] h-[4vw] rounded-full bg-[#74FFFE] flex items-center justify-center cursor-pointer "
-              >
-                <button className="flex flex-col gap-[1vh] w-[65%]  ">
-                  <div className=" w-full h-[.5vh] bg-[#292967] rounded-full"></div>
-                  <div className=" w-full h-[.5vh] bg-[#292967] rounded-full"></div>
-                </button>
-              </div>
-            </div>
-          </nav>
-        )}
-        <div
-          className={`${
-            isOpenMenu ? "hidden" : "block"
-          } flex items-center justify-between px-[5%]`}
-        >
+        <div className="flex items-center justify-between px-[5%]">
           <Link to="/" className=" flex items-center gap-[1.5vw]">
-            <img
-              src={brandLogo}
-              alt={"brand logo"}
-              className="w-[4vw] h-[4vw]"
-            />
-            <div className=" ">
-              <img src={brandName} className="w-[10vw] h-[auto] bg-cover" />
+            <BrandLogo color={isOpenMenu ? "#FFFFFF" : "#282866"} />
+            <div className="">
+              <img
+                src={isOpenMenu ? brandNameWite : brandName}
+                className="w-[10vw] h-[auto] bg-cover"
+              />
             </div>
           </Link>
-          <div className="h-full flex items-center gap-[1.5vw]">
+          <div className="h-full flex items-center gap-[3vw]">
             {window.location.pathname === "/funding-options" && (
               <div>
-                <div className="flex gap-[1vw] text-[1.5vw] text-[#282866] font-[600]">
+                <div
+                  className={`${
+                    isOpenMenu ? "text-[#FFFFFF]" : "text-[#282866]"
+                  } flex gap-[1vw] text-[1.5vw]  font-[600]`}
+                >
                   <h1>Choose Grants</h1>
                   <button className="flex items-center gap-[.5vw]">
-                    <p className="text-[#4E4EFF]">Click to select</p>
+                    <p
+                      className={`${
+                        isOpenMenu ? "text-[#FFFFFF]" : "text-[#4E4EFF]"
+                      }`}
+                    >
+                      Click to select
+                    </p>
                     <UnionUpDownArrow
                       downArrow={true}
-                      color={"#4E4EFF"}
+                      color={isOpenMenu ? "#FFFFFF" : "#4E4EFF"}
                       size={"1vw"}
                       strokeWidth={".9vh"}
                     />
@@ -94,17 +64,35 @@ const Header = () => {
                 </div>
               </div>
             )}
-            <div>
-              <h1 className="text-[1.5vw] text-[#282866] font-[600]">Menu</h1>
-            </div>
-            <div
-              onClick={() => setIsOpenMenu(!isOpenMenu)}
-              className="w-[4vw] h-[4vw] rounded-full bg-[#282866] flex items-center justify-center cursor-pointer "
-            >
-              <button className="flex flex-col gap-[1vh] w-[65%]  ">
-                <div className=" w-full h-[.5vh] bg-[#74FFFE] rounded-full"></div>
-                <div className=" w-full h-[.5vh] bg-[#74FFFE] rounded-full"></div>
-              </button>
+            <div className="flex items-center gap-[1vw]">
+              <div>
+                <h1
+                  className={`${
+                    isOpenMenu ? "text-[#FFFFFF]" : "text-[#282866]"
+                  } text-[1.5vw] font-[600]`}
+                >
+                  {isOpenMenu ? "Close" : "Menu"}
+                </h1>
+              </div>
+              <div
+                onClick={() => setIsOpenMenu(!isOpenMenu)}
+                className={`${
+                  isOpenMenu ? "bg-[#74FFFE]" : "bg-[#292967]"
+                } w-[4vw] h-[4vw] rounded-full flex items-center justify-center cursor-pointer`}
+              >
+                <button className="flex flex-col gap-[1vh] items-center justify-center w-[65%]  ">
+                  <div
+                    className={`menu-bar-one ${
+                      isOpenMenu ? " bg-[#292967]" : "bg-[#74FFFE]"
+                    }  w-[90%] h-[.5vh] rounded-full `}
+                  ></div>
+                  <div
+                    className={`menu-bar-two ${
+                      isOpenMenu ? " bg-[#292967]" : "bg-[#74FFFE]"
+                    }  w-[90%] h-[.5vh] rounded-full `}
+                  ></div>
+                </button>
+              </div>
             </div>
           </div>
         </div>

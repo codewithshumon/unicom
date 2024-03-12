@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import OutLinkArrow from "./OutLinkArrow";
 
-const FindGrants = ({ className }) => {
+const FindGrants = ({ className, textColor }) => {
   return (
     <>
       <div className={className}>
@@ -9,7 +9,7 @@ const FindGrants = ({ className }) => {
           <button className=" w-[10vh] h-[10vh] p-[3vh]  bg-[#EDF82D] flex items-center justify-center rounded-full">
             <OutLinkArrow color={"#282866"} />
           </button>
-          <p className="">
+          <p className={textColor}>
             Find grants, rebates <br /> and VC funding. <br /> Success fee only*
           </p>
         </div>

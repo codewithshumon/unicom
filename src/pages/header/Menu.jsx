@@ -50,7 +50,10 @@ const Menu = ({ isOpen, setIsOpen }) => {
       <div className=" w-full h-full px-[5%] flex items-end">
         <div className=" w-full h-[80%] flex items-end py-[5vh] ">
           <div className="w-[50%] overflow-hidden">
-            <FindGrants className="up-down-anim translate-y-[100%]" />
+            <FindGrants
+              className="up-down-anim translate-y-[100%]"
+              textColor="text-[#FFFFFF]"
+            />
           </div>
           <div className="w-[50%] h-full flex flex-col justify-between">
             <div className="flex flex-col gap-[1vh] ">
@@ -83,32 +86,40 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 </div>
               ))}
             </div>
-            <div className="text-[#FFFFFF] leading-none text-[3vh] flex flex-col gap-[1vh] ">
+            <div className="text-[#FFFFFF] leading-none text-[3vh] flex flex-col">
               <a
                 href="https://linkedin.com/unicom"
                 className=" overflow-hidden"
               >
-                <div className="flex gap-[.4vw] up-down-anim translate-y-[100%]">
-                  <p>LinkedIn</p>
-                  <OutLinkArrow color="#FFFFFF" size="2vh" />
+                <div className="py-[.3vh]">
+                  <div className="flex gap-[.4vw] up-down-anim translate-y-[120%]">
+                    <p>LinkedIn</p>
+                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                  </div>
                 </div>
               </a>
+
               <a
                 href="https://instagram.com/unicom"
-                className=" overflow-hidden "
+                className=" overflow-hidden"
               >
-                <div className="flex gap-[.4vw] up-down-anim translate-y-[100%]">
-                  <p>Instagram</p>
-                  <OutLinkArrow color="#FFFFFF" size="2vh" />
+                <div className="py-[.3vh]">
+                  <div className="flex gap-[.4vw]  up-down-anim translate-y-[120%] ">
+                    <p>Instagram</p>
+                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                  </div>
                 </div>
               </a>
+
               <a
                 href="https://twitter.com/unicom"
                 className=" overflow-hidden "
               >
-                <div className="flex gap-[.4vw] up-down-anim translate-y-[110%]">
-                  <p>Twitter</p>
-                  <OutLinkArrow color="#FFFFFF" size="2vh" />
+                <div className="py-[.3vh]">
+                  <div className="flex gap-[.4vw] up-down-anim translate-y-[120%] ">
+                    <p>Twitter</p>
+                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                  </div>
                 </div>
               </a>
             </div>

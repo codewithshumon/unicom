@@ -8,6 +8,7 @@ import unionRightArrow from "/svg/unionRightArrow.svg";
 import whiteBrandLogo from "/svg/whiteBrandLogo.svg";
 import unionUpArrow from "/svg/unionUpArrow.svg";
 import subscribArrow from "/svg/subscribArrow.svg";
+import brandNameWite from "/svg/brandNameWite.svg";
 
 export {
   brandLogo,
@@ -20,4 +21,5 @@ export {
   whiteBrandLogo,
   unionUpArrow,
   subscribArrow,
+  brandNameWite,
 };
