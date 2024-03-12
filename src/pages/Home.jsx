@@ -70,37 +70,34 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="">
-          <div className="card-gradient-bg">
-            <div className="h-[50vh] ">
+        <section className="relative">
+          <div className="card-gradient-bg sticky top-0">
+            <div className="h-[50vh]">
               <ServayCard
                 title="Fill out the Survey"
                 titleNumber="01"
                 subtitle="Easy Process"
-                para="You can fill out the survey by filling out the survey to get
-                  the survey yes thats right."
+                para="You can fill out the survey by filling out the survey to get the survey yes thats right."
               />
             </div>
           </div>
-          <div className="card-gradient-bg">
-            <div className=" h-[50vh] ">
+          <div className="card-gradient-bg sticky top-[20vh]">
+            <div className="h-[50vh]">
               <ServayCard
                 title="Get Connected"
                 titleNumber="02"
                 subtitle="Easy Process"
-                para="You can fill out the survey by filling out the survey to get
-                  the survey yes thats right."
+                para="You can fill out the survey by filling out the survey to get the survey yes thats right."
               />
             </div>
           </div>
-          <div className="card-gradient-bg">
-            <div className=" h-[50vh] ">
+          <div className="card-gradient-bg sticky top-[40vh]">
+            <div className="h-[50vh]">
               <ServayCard
                 title="Get Funded"
                 titleNumber="03"
                 subtitle="Easy Process"
-                para="You can fill out the survey by filling out the survey to get
-                  the survey yes thats right."
+                para="You can fill out the survey by filling out the survey to get the survey yes thats right."
               />
             </div>
           </div>
