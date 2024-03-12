@@ -9,10 +9,14 @@ body {
   font-family: "Darker Grotesque", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  user-select: none;
 }
 
-.landing-bg {
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body .landing-bg {
   background: url("./assets/images/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,7 +31,8 @@ body {
   );
 }
 
-.refarrel-engine-gradient {
+.refarrel-engine-gradient,
+.menu-gradient-bg {
   background: linear-gradient(
     301.42deg,
     #4f4fff 59.91%,

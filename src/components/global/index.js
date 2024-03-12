@@ -3,6 +3,7 @@ import BrandLogo from "./BrandLogo";
 import UnionUpDownArrow from "./UnionUpDownArrow";
 import FindGrants from "./FindGrants";
 import OutLinkArrow from "./OutLinkArrow";
+import UnionRightLeftArrow from "./UnionRightLeftArrow";
 
 export {
   BrandLogo,
@@ -10,4 +11,5 @@ export {
   UnionUpDownArrow,
   FindGrants,
   OutLinkArrow,
+  UnionRightLeftArrow,
 };

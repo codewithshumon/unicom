@@ -4,8 +4,8 @@ import { FindGrants } from "../components/global";
 const FundingOptions = () => {
   return (
     <div className=" w-full h-full">
-      <section className=" w-full h-full ">
-        <div className=" w-full h-[100vh] px-[5%] py-[10vh] mt-[20vh] flex flex-row gap-[10vh]">
+      <section className=" w-full h-full pt-[25vh] ">
+        <div className=" w-full h-[100vh] px-[5%] py-[10vh]  flex flex-row gap-[10vh]">
           <div className=" w-[40vw] flex flex-col justify-between pb-[5vh]">
             <div>
               <h1 className="text-[10vh] leading-none text-[#282866]">

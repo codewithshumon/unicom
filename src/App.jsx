@@ -9,16 +9,17 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Header from "./pages/header/Header";
 import Footer from "./pages/footer/Footer";
+import Modal from "./components/modal/Modal";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Modal />
         <Header />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/funding-options" element={<FundingOptions />} />
           <Route path="/referral-engine" element={<ReferralEngine />} />
