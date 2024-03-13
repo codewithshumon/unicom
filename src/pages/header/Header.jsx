@@ -98,11 +98,11 @@ const Header = () => {
         </div>
       </header>
 
-      <div className=" absolute w-full h-full z-[99]">
+      <section className=" absolute w-full h-full z-[99]">
         <div className="  w-full h-full ">
           <Menu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
         </div>
-      </div>
+      </section>
     </>
   );
 };

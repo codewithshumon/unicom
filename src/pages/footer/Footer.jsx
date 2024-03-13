@@ -11,7 +11,7 @@ const Footer = () => {
   }
 
   return (
-    <div>
+    <footer>
       <div className=" w-full h-full landing-bg py-[10vh] ">
         <div className=" absolute px-[5%]  w-full h-full flex items-center justify-center">
           <div className=" w-full h-full relative">
@@ -54,7 +54,7 @@ const Footer = () => {
           />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
