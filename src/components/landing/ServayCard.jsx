@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const ServayCard = ({ title, titleNumber, subtitle, para }) => {
   return (
-    <div className="w-full h-full px-[5%] py-[4vh] flex flex-col justify-between">
+    <div className="w-full h-full px-[5%] pt-[5vh] py-[10vh] flex flex-col justify-between">
       <div className="text-[10vh] flex items-center justify-between  ">
         <h1 className="text-[#74FFFE] font-[600]">{title}</h1>
         <span className="text-[#EDF82D] font-[700]">{titleNumber}</span>

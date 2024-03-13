@@ -45,7 +45,7 @@ const Menu = ({ isOpen, setIsOpen }) => {
   return (
     <div
       onClick={() => setIsOpen(false)}
-      className="w-screen h-screen menu-gradient-bg menu-reveal-anim translate-y-[-100%] select-none"
+      className="w-screen h-screen menu-gradient-bg menu-reveal-anim translate-y-[-100%] select-none "
     >
       <div className=" w-full h-full px-[5%] flex items-end">
         <div className=" w-full h-[80%] flex items-end py-[5vh] ">

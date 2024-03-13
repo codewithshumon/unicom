@@ -9,7 +9,7 @@ import {
   landingProfileGirl,
 } from "./../assets/images/";
 import { unionLeftArrow, unionRightArrow } from "../../public/svg";
-import CircleCard from "./sections/CircleCard";
+//import CircleCard from "./sections/CircleCard";
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
         <div className="w-full relative">
           <div className="absolute w-full px-[5%] top-[70vh] flex justify-between">
             <div className="w-full relative ">
-              <div className=" w-full  flex items-end justify-between">
+              <div className="w-full flex items-end justify-between ">
                 <div className=" ">
                   <h1 className="text-[13vh] text-[#282866] font-[600] leading-none">
                     Find funding you <br />
@@ -76,7 +76,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="card-gradient-bg sticky top-[20vh]">
+        <div className="card-gradient-bg sticky top-[20vh] mt-[-1vh]">
           <div className="h-[50vh]">
             <ServayCard
               title="Get Connected"
@@ -86,7 +86,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="card-gradient-bg sticky top-[40vh]">
+        <div className="card-gradient-bg sticky top-[40vh] mt-[-1vh]">
           <div className="h-[50vh]">
             <ServayCard
               title="Get Funded"
@@ -99,7 +99,7 @@ const Home = () => {
       </section>
 
       <section className="w-full h-full landing-bg ">
-        <CircleCard />
+        {/* <CircleCard /> */}
       </section>
 
       <section>
