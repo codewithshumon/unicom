@@ -9,6 +9,7 @@ import {
   landingProfileGirl,
 } from "./../assets/images/";
 import { unionLeftArrow, unionRightArrow } from "../../public/svg";
+import CircleCard from "./sections/CircleCard";
 //import CircleCard from "./sections/CircleCard";
 
 const Home = () => {
@@ -99,7 +100,7 @@ const Home = () => {
       </section>
 
       <section className="w-full h-full landing-bg ">
-        {/* <CircleCard /> */}
+        <CircleCard />
       </section>
 
       <section>
