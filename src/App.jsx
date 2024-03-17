@@ -9,13 +9,13 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Header from "./pages/header/Header";
 import Footer from "./pages/footer/Footer";
-import Modal from "./components/modal/Modal";
+import StepsModal from "./components/modal/StepsModal";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Modal />
+        <StepsModal />
         <Header />
         <Routes>
           <Route path="*" element={<NotFound />} />

@@ -88,7 +88,7 @@ const ReferralEngine = () => {
                     Subscribe to our publications
                   </h2>
                 </div>
-                <div className="flex flex-col gap-[1vh] font-[600] text-[1vw] text-[#282866] ">
+                <form className="flex flex-col gap-[1vh] font-[600] text-[1vw] text-[#282866] ">
                   <div className="rounded-[1vw] bg-white p-[2vh] flex gap-[1vw]  ]">
                     <label htmlFor="name">Name</label>
                     <input
@@ -107,7 +107,7 @@ const ReferralEngine = () => {
                       className="outline-none text-[#8282FF] font-[500]"
                     />
                   </div>
-                </div>
+                </form>
                 <div className="">
                   <button className="text-[#282866] font-[700] flex gap-[1vh] bg-[#EDF82D] px-[4vh] py-[2vh] rounded-full items-center">
                     <span className="text-[1vw]">Subscribe</span>

@@ -5,11 +5,9 @@ import { BrandLogo } from "../global";
 import { brandName } from "../../../public/svg";
 import useModal from "../../hooks/useModal";
 
-const Modal = ({ disabled, modalBody }) => {
+const Modal = ({ disabled, modalBody, count, setCount }) => {
   const { isOpen, onClose } = useModal();
   const [showModal, setShowModal] = useState(false);
-
-  console.log("modalBody", modalBody);
 
   useEffect(() => {
     setShowModal(isOpen);
@@ -31,10 +29,14 @@ const Modal = ({ disabled, modalBody }) => {
       return;
     }
 
+    if (count === 5) {
+      setCount(0);
+    }
+
     setShowModal(false);
 
     onClose();
-  }, [disabled, onClose]);
+  }, [disabled, onClose, count, setCount]);
 
   if (!showModal) {
     return null;
@@ -61,17 +63,21 @@ const Modal = ({ disabled, modalBody }) => {
               <div className="flex items-center gap-[1vw]">
                 <div>
                   <h1 className="text-[#282866] text-[1.5vw] font-[600]">
-                    Close
+                    {count > 0 && count <= 4 ? "Steps" : "Close"}
                   </h1>
                 </div>
                 <div
                   onClick={handleClose}
                   className="bg-[#292967] w-[4vw] h-[4vw] rounded-full flex items-center justify-center cursor-pointer"
                 >
-                  <button className="flex flex-col gap-[1vh] items-center justify-center w-[65%]  ">
-                    <div className="bg-[#74FFFE] w-[90%] h-[.5vh] rounded-full rotate-[45deg] translate-y-[.8vh] "></div>
-                    <div className="bg-[#74FFFE] w-[90%] h-[.5vh] rounded-full rotate-[-45deg] translate-y-[-.6vh]"></div>
-                  </button>
+                  {count > 0 && count <= 4 ? (
+                    <span className="text-[#74FFFE]">{count} / 4</span>
+                  ) : (
+                    <button className="flex flex-col gap-[1vh] items-center justify-center w-[65%]  ">
+                      <div className="bg-[#74FFFE] w-[90%] h-[.5vh] rounded-full rotate-[45deg] translate-y-[.8vh] " />
+                      <div className="bg-[#74FFFE] w-[90%] h-[.5vh] rounded-full rotate-[-45deg] translate-y-[-.6vh]" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

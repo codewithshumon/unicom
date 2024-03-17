@@ -94,7 +94,11 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 <div className="py-[.3vh]">
                   <div className="flex gap-[.4vw] up-down-anim translate-y-[120%]">
                     <p>LinkedIn</p>
-                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                    <OutLinkArrow
+                      rightArrow={true}
+                      color="#FFFFFF"
+                      size="2vh"
+                    />
                   </div>
                 </div>
               </a>
@@ -106,7 +110,11 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 <div className="py-[.3vh]">
                   <div className="flex gap-[.4vw]  up-down-anim translate-y-[120%] ">
                     <p>Instagram</p>
-                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                    <OutLinkArrow
+                      rightArrow={true}
+                      color="#FFFFFF"
+                      size="2vh"
+                    />
                   </div>
                 </div>
               </a>
@@ -118,7 +126,11 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 <div className="py-[.3vh]">
                   <div className="flex gap-[.4vw] up-down-anim translate-y-[120%] ">
                     <p>Twitter</p>
-                    <OutLinkArrow color="#FFFFFF" size="2vh" />
+                    <OutLinkArrow
+                      rightArrow={true}
+                      color="#FFFFFF"
+                      size="2vh"
+                    />
                   </div>
                 </div>
               </a>

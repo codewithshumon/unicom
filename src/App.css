@@ -45,5 +45,47 @@ body .landing-bg {
   position: absolute;
   top: 0;
   left: 0;
+  width: 6%;
+  max-width: 200px;
   aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.button-bg::before {
+  content: "";
+  width: 150%;
+  height: 200%;
+  top: 0;
+  left: -5%; /* Added left position */
+  position: absolute;
+  background-image: url("./../../public/button.svg");
+  background-repeat: no-repeat;
+  transform: translateY(100%);
+  transition: 1s ease;
+}
+
+.button-bg:hover::before {
+  transform: translateY(-50%);
+}
+
+.circle-button-bg::before {
+  content: "";
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  top: var(--y);
+  left: var(--x);
+  position: absolute;
+  background: #04db9b;
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+}
+
+.circle-button-bg:hover::before {
+  width: 300px;
+  height: 300px;
 }

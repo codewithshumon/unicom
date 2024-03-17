@@ -21,7 +21,6 @@ const Header = () => {
     } else {
       tl.current.pause(1).reverse();
     }
-    console.log("isOpenMenu", isOpenMenu);
   }, [isOpenMenu]);
 
   return (
@@ -98,7 +97,7 @@ const Header = () => {
         </div>
       </header>
 
-      <section className=" absolute w-full h-full z-[99] ">
+      <section className=" absolute w-full h-full z-[99]">
         <div className="  w-full h-full ">
           <Menu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
         </div>

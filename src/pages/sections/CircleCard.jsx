@@ -19,14 +19,14 @@ const CircleCard = () => {
     circleItem.forEach((item, index) => {
       gsap.set(item, {
         rotation: (360 / circleItem.length) * index,
-        transformOrigin: "170px -720px",
+        transformOrigin: "130px -520px",
       });
     });
   }, [circleItem]);
 
   useEffect(() => {
     gsap.set(circleContainerRef.current, {
-      transformOrigin: "170px -720px",
+      transformOrigin: "130px -520px",
     });
   }, []);
 

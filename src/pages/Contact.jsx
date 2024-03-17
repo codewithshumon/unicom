@@ -36,6 +36,7 @@ const Contact = () => {
                   </Link>
                   <div className="">
                     <OutLinkArrow
+                      rightArrow={true}
                       color={`${isHoverMail ? "#8282FF" : "#282866"}`}
                       size="3vh"
                     />

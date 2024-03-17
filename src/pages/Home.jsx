@@ -10,7 +10,6 @@ import {
 } from "./../assets/images/";
 import { unionLeftArrow, unionRightArrow } from "../../public/svg";
 import CircleCard from "./sections/CircleCard";
-//import CircleCard from "./sections/CircleCard";
 
 const Home = () => {
   return (
