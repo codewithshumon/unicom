@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
-//import { Draggable } from "gsap/Draggable";
-//import { Flip } from "gsap/Flip";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import {
   unionLeftArrow,
   unionRightArrow,
@@ -10,46 +10,42 @@ import {
 import LandingCard from "../../components/landing/LandingCard";
 
 const CircleCard = () => {
-  const circleItem = gsap.utils.toArray(".circle-item");
-  let slice = 360 / circleItem.length;
-  let curRotation = 0;
-  const circleContainerRef = useRef();
-
   useEffect(() => {
-    circleItem.forEach((item, index) => {
-      gsap.set(item, {
-        rotation: (360 / circleItem.length) * index,
-        transformOrigin: "130px -520px",
+    gsap.registerPlugin(ScrollTrigger);
+
+    let wheel = document.querySelector(".wheel");
+    let images = gsap.utils.toArray(".wheel__card");
+
+    function setup() {
+      let radius = wheel.offsetWidth / 2,
+        center = radius,
+        slice = 360 / images.length,
+        DEG2RAD = Math.PI / 180;
+      gsap.set(images, {
+        x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
+        y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
+        rotation: (i) => i * slice + 1,
       });
-    });
-  }, [circleItem]);
+    }
 
-  useEffect(() => {
-    gsap.set(circleContainerRef.current, {
-      transformOrigin: "130px -520px",
-    });
+    setup();
+    window.addEventListener("resize", setup);
+
+    // gsap.to(wheel, {
+    //   rotation: -360,
+    //   ease: "none",
+    //   duration: images.length,
+    //   scrollTrigger: {
+    //     start: 0,
+    //     end: "max",
+    //     scrub: 1,
+    //   },
+    // });
+
+    return () => {
+      window.removeEventListener("resize", setup);
+    };
   }, []);
-
-  const handlePrev = () => {
-    curRotation += slice;
-
-    rotateCircle();
-  };
-
-  const handleNext = () => {
-    curRotation -= slice;
-    rotateCircle();
-  };
-
-  const rotateCircle = () => {
-    gsap.to(circleContainerRef.current, {
-      duration: 0.25,
-      ease: "power1.inOut",
-      rotation: curRotation,
-      overwrite: "auto",
-    });
-  };
-
   return (
     <div className="w-full h-[130vh] relative overflow-hidden">
       <div className="px-[5%] py-[5%] h-full flex flex-col justify-between z-10">
@@ -59,80 +55,101 @@ const CircleCard = () => {
             Funding Options
           </h1>
         </div>
-        <div
-          ref={circleContainerRef}
-          className="absolute left-[40vw] top-[280vh] max-w-[100vw] "
-        >
-          <div className="w-full flex flex-row items-center justify-center ">
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+        <div className=" w-full h-full relative">
+          <div className="wheel absolute top-[5vh] left-[-65vw] w-[200vw]">
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
             </div>
-            <div className="wheel">
-              <button className="circle-item">
-                <LandingCard title="Energy Rebates" />
-              </button>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Energy Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Venture Capital" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
+            </div>
+            <div className="wheel__card">
+              <LandingCard title="Government Rebates" />
             </div>
           </div>
         </div>
         <div className=" absolute left-[45vw] top-[110vh]">
           <div className=" w-full flex items-center justify-center gap-4">
             <div>
-              <button
-                onClick={handlePrev}
-                className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] "
-              >
+              <button className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] ">
                 <img
                   src={unionLeftArrow}
                   className=" w-full flex items-center justify-center"
@@ -140,10 +157,7 @@ const CircleCard = () => {
               </button>
             </div>
             <div>
-              <button
-                onClick={handleNext}
-                className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] "
-              >
+              <button className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] ">
                 <img
                   src={unionRightArrow}
                   className="w-full flex items-center justify-center"

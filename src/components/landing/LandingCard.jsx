@@ -7,7 +7,7 @@ import UnionCardArrow from "../global/UnionCardArrow";
 
 const LandingCard = ({ title }) => {
   return (
-    <div className="w-[20vw] h-[60vh] bg-[#FFFFFF]  p-[5vh] rounded-[2vh]">
+    <div className="w-[18vw] h-[60vh] bg-[#FFFFFF]  p-[5vh] rounded-[2vh]">
       <div className=" w-full h-full flex flex-col justify-between gap-5">
         <div>
           <BrandLogo color="#4E4EFF" className="w-[3vw]" />

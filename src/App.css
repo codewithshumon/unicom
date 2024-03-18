@@ -41,16 +41,6 @@ body .landing-bg {
   );
 }
 
-.circle-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6%;
-  max-width: 200px;
-  aspect-ratio: 1 / 1;
-  cursor: pointer;
-}
-
 input[type="radio"] {
   display: none;
 }
@@ -88,4 +78,33 @@ input[type="radio"] {
 .circle-button-bg:hover::before {
   width: 300px;
   height: 300px;
+}
+
+/* comment sectin  */
+
+/* .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300vw;
+  height: 300vw;
+} */
+
+.wheel__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.wheel-div {
+  width: 100px;
+  height: 200px;
+  background: #c70f0f;
 }
