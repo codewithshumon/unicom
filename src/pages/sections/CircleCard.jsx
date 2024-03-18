@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,6 +10,11 @@ import {
 import LandingCard from "../../components/landing/LandingCard";
 
 const CircleCard = () => {
+  const wheelRef = useRef();
+  const circleItem = gsap.utils.toArray(".wheel__card");
+  let slice = 360 / circleItem.length;
+  let curRotation = 0;
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -31,21 +36,37 @@ const CircleCard = () => {
     setup();
     window.addEventListener("resize", setup);
 
-    // gsap.to(wheel, {
-    //   rotation: -360,
-    //   ease: "none",
-    //   duration: images.length,
-    //   scrollTrigger: {
-    //     start: 0,
-    //     end: "max",
-    //     scrub: 1,
-    //   },
-    // });
-
     return () => {
       window.removeEventListener("resize", setup);
     };
   }, []);
+
+  useEffect(() => {
+    gsap.set(wheelRef.current, {
+      transformOrigin: "center",
+    });
+  }, []);
+
+  const handlePrev = () => {
+    curRotation += slice;
+
+    rotateCircle();
+  };
+
+  const handleNext = () => {
+    curRotation -= slice;
+    rotateCircle();
+  };
+
+  const rotateCircle = () => {
+    gsap.to(wheelRef.current, {
+      duration: 0.25,
+      ease: "power1.inOut",
+      rotation: curRotation,
+      overwrite: "auto",
+    });
+  };
+
   return (
     <div className="w-full h-[130vh] relative overflow-hidden">
       <div className="px-[5%] py-[5%] h-full flex flex-col justify-between z-10">
@@ -55,7 +76,7 @@ const CircleCard = () => {
             Funding Options
           </h1>
         </div>
-        <div className=" w-full h-full relative">
+        <div ref={wheelRef} className="w-full h-full relative">
           <div className="wheel absolute top-[5vh] left-[-65vw] w-[200vw]">
             <div className="wheel__card">
               <LandingCard title="Energy Rebates" />
@@ -149,7 +170,10 @@ const CircleCard = () => {
         <div className=" absolute left-[45vw] top-[110vh]">
           <div className=" w-full flex items-center justify-center gap-4">
             <div>
-              <button className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] ">
+              <button
+                onClick={handlePrev}
+                className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] "
+              >
                 <img
                   src={unionLeftArrow}
                   className=" w-full flex items-center justify-center"
@@ -157,7 +181,10 @@ const CircleCard = () => {
               </button>
             </div>
             <div>
-              <button className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] ">
+              <button
+                onClick={handleNext}
+                className=" relative border-[2px] border-[#282866] w-[3.5vw] h-[3.5vw] rounded-full p-[2vh] "
+              >
                 <img
                   src={unionRightArrow}
                   className="w-full flex items-center justify-center"
