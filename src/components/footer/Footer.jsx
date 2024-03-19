@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { footerBlob } from "../../assets/images";
-import { FindGrants } from "../../components/global";
+import { FindGrants } from "../global";
 
 const Footer = () => {
   const { pathname } = useLocation();

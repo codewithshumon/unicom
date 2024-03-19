@@ -3,11 +3,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import gsap from "gsap";
 
-import {
-  FindGrants,
-  OutLinkArrow,
-  UnionRightLeftArrow,
-} from "../../components/global";
+import { FindGrants, OutLinkArrow, UnionRightLeftArrow } from "../global";
 
 const navMenus = [
   { path: "/about-us", display: "About" },

@@ -7,9 +7,10 @@ import FundingOptions from "./pages/FundingOptions";
 import ReferralEngine from "./pages/ReferralEngine";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
-import Header from "./pages/header/Header";
-import Footer from "./pages/footer/Footer";
+
 import StepsModal from "./components/modal/StepsModal";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (

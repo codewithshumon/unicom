@@ -1,55 +1,67 @@
-import { useEffect, useRef } from "react";
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Draggable } from "gsap/Draggable";
 
 import {
   unionLeftArrow,
   unionRightArrow,
   whiteBrandLogo,
 } from "../../../public/svg";
-import LandingCard from "../../components/landing/LandingCard";
+import LandingCard from "../landing/LandingCard";
 
 const CircleCard = () => {
-  const wheelRef = useRef();
-  const circleItem = gsap.utils.toArray(".wheel__card");
-  let slice = 360 / circleItem.length;
+  let wheel;
+  let wheelCard;
+  let slice;
   let curRotation = 0;
+  let d;
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(Draggable);
 
-    let wheel = document.querySelector(".wheel");
-    let images = gsap.utils.toArray(".wheel__card");
+    wheel = document.querySelector(".wheel");
+    wheelCard = gsap.utils.toArray(".wheel__card");
+    slice = 360 / wheelCard.length;
 
     function setup() {
       let radius = wheel.offsetWidth / 2,
         center = radius,
-        slice = 360 / images.length,
         DEG2RAD = Math.PI / 180;
-      gsap.set(images, {
+      gsap.set(wheelCard, {
         x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
         y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
         rotation: (i) => i * slice + 1,
       });
     }
-
     setup();
     window.addEventListener("resize", setup);
+
+    d = Draggable.create(wheel, {
+      allowContextMenu: true,
+      type: "rotation",
+      trigger: wheel,
+      inertia: true,
+      zIndexBoost: false,
+      onDrag: () => (isRotating = true),
+      onThrowComplete: () => (isRotating = false),
+      snap: {
+        rotation: gsap.utils.snap(360 / wheelCard.length),
+      },
+    })[0];
 
     return () => {
       window.removeEventListener("resize", setup);
     };
   }, []);
 
-  useEffect(() => {
-    gsap.set(wheelRef.current, {
-      transformOrigin: "center",
-    });
-  }, []);
+  const rotationBtnComplete = () => {
+    d.update();
+  };
 
   const handlePrev = () => {
     curRotation += slice;
-
     rotateCircle();
   };
 
@@ -59,11 +71,12 @@ const CircleCard = () => {
   };
 
   const rotateCircle = () => {
-    gsap.to(wheelRef.current, {
+    gsap.to(wheel, {
       duration: 0.25,
       ease: "power1.inOut",
       rotation: curRotation,
       overwrite: "auto",
+      onComplete: rotationBtnComplete,
     });
   };
 
@@ -76,8 +89,8 @@ const CircleCard = () => {
             Funding Options
           </h1>
         </div>
-        <div ref={wheelRef} className="w-full h-full relative">
-          <div className="wheel absolute top-[5vh] left-[-65vw] w-[200vw]">
+        <div className="w-full h-full relative">
+          <div className="wheel absolute top-[5vh] left-[-65vw] w-[200vw] flex items-center justify-center">
             <div className="wheel__card">
               <LandingCard title="Energy Rebates" />
             </div>

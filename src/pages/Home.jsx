@@ -9,7 +9,7 @@ import {
   landingProfileGirl,
 } from "./../assets/images/";
 import { unionLeftArrow, unionRightArrow } from "../../public/svg";
-import CircleCard from "./sections/CircleCard";
+import CircleCard from "../components/sections/CircleCard";
 
 const Home = () => {
   return (
