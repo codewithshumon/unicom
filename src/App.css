@@ -82,23 +82,24 @@ input[type="radio"] {
 
 /* comment sectin  */
 
-/* .wheel {
+.wheel {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -35%;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 300vw;
   height: 300vw;
-} */
+  max-width: 2000px;
+  max-height: 2000px;
+}
 
 .wheel__card {
   position: absolute;
   top: 0;
   left: 0;
   width: 6%;
-  max-width: 200px;
   aspect-ratio: 1 / 1;
   cursor: pointer;
 }

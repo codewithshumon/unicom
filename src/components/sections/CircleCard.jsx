@@ -17,7 +17,6 @@ const CircleCard = () => {
   let slice;
   let curRotation = 0;
   let d;
-
   useEffect(() => {
     gsap.registerPlugin(Draggable);
 
@@ -32,7 +31,9 @@ const CircleCard = () => {
       gsap.set(wheelCard, {
         x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
         y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
-        rotation: (i) => i * slice + 1,
+        rotation: (i) => i * slice,
+        xPercent: -50,
+        yPercent: -50,
       });
     }
     setup();
@@ -81,7 +82,7 @@ const CircleCard = () => {
   };
 
   return (
-    <div className="w-full h-[130vh] relative overflow-hidden">
+    <div className="w-full h-[260vh] relative overflow-hidden">
       <div className="px-[5%] py-[5%] h-full flex flex-col justify-between z-10">
         <div>
           <h1 className="text-[#282866] text-[10vh] leading-none font-[600]">
@@ -90,93 +91,47 @@ const CircleCard = () => {
           </h1>
         </div>
         <div className="w-full h-full relative">
-          <div className="wheel absolute top-[5vh] left-[-65vw] w-[200vw] flex items-center justify-center">
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Energy Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Venture Capital" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
-            </div>
-            <div className="wheel__card">
-              <LandingCard title="Government Rebates" />
+          <div className="relative">
+            <div className="wheel">
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
             </div>
           </div>
         </div>
