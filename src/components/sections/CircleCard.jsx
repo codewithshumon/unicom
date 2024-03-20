@@ -31,7 +31,7 @@ const CircleCard = () => {
       gsap.set(wheelCard, {
         x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
         y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
-        rotation: (i) => i * slice,
+        rotation: (i) => i * slice + 4,
         xPercent: -50,
         yPercent: -50,
       });
@@ -82,7 +82,7 @@ const CircleCard = () => {
   };
 
   return (
-    <div className="w-full h-[260vh] relative overflow-hidden">
+    <div className="w-full h-[140vh] relative overflow-hidden">
       <div className="px-[5%] py-[5%] h-full flex flex-col justify-between z-10">
         <div>
           <h1 className="text-[#282866] text-[10vh] leading-none font-[600]">
@@ -90,12 +90,13 @@ const CircleCard = () => {
             Funding Options
           </h1>
         </div>
-        <div className="w-full h-full relative">
+        <div className="w-full h-full absolute top-[50%] left-[8%] rotate-[-3.5deg]">
           <div className="relative">
             <div className="wheel">
               <div className="wheel__card">
                 <LandingCard title="Energy Rebates" />
               </div>
+
               <div className="wheel__card">
                 <LandingCard title="Venture Capital" />
               </div>
@@ -131,6 +132,21 @@ const CircleCard = () => {
               </div>
               <div className="wheel__card">
                 <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Energy Rebates" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Venture Capital" />
+              </div>
+              <div className="wheel__card">
+                <LandingCard title="Government Rebates" />
               </div>
             </div>
           </div>
