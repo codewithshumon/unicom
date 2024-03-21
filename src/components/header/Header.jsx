@@ -3,11 +3,24 @@ import gsap from "gsap";
 
 import { brandName, brandNameWite } from "../../../public/svg";
 import { BrandLogo, UnionUpDownArrow } from "../../components/global";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Menu from "./Menu";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [handleStyle, setHandleStyle] = useState("translate-y-0");
+
+  useEffect(() => {
+    if (!isOpenMenu) {
+      const timeoutId = setTimeout(() => {
+        setHandleStyle("translate-y-[-100%]");
+      }, 1500);
+
+      return () => clearTimeout(timeoutId);
+    } else {
+      setHandleStyle("translate-y-0");
+    }
+  }, [isOpenMenu]);
 
   const tl = useRef(gsap.timeline());
 
@@ -97,8 +110,8 @@ const Header = () => {
         </div>
       </header>
 
-      <section className=" absolute w-full h-full z-[99]">
-        <div className="  w-full h-full ">
+      <section className={`${handleStyle} absolute w-full h-full z-[99]`}>
+        <div className="w-full h-full ">
           <Menu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
         </div>
       </section>
