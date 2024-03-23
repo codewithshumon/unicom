@@ -73,7 +73,7 @@ const CircleCard = () => {
 
   const rotateCircle = () => {
     gsap.to(wheel, {
-      duration: 0.25,
+      duration: 0.8,
       ease: "power1.inOut",
       rotation: curRotation,
       overwrite: "auto",

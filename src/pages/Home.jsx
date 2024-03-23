@@ -3,13 +3,10 @@ import { Link } from "react-router-dom";
 import ServayCard from "../components/landing/ServayCard";
 import { FindGrants } from "../components/global";
 
-import {
-  customerReview,
-  landingBlob,
-  landingProfileGirl,
-} from "./../assets/images/";
+import { customerReview, landingBlob } from "./../assets/images/";
 import { unionLeftArrow, unionRightArrow } from "../../public/svg";
 import CircleCard from "../components/sections/CircleCard";
+import LandingImage from "../components/sections/LandingImage";
 
 const Home = () => {
   return (
@@ -60,9 +57,7 @@ const Home = () => {
       </section>
 
       <section className="w-full h-full">
-        <div className=" h-full">
-          <img src={landingProfileGirl} className=" w-full  bg-cover" />
-        </div>
+        <LandingImage />
       </section>
 
       <section className="relative">

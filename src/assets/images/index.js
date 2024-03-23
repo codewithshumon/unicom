@@ -11,6 +11,8 @@ import stepsBlob3 from "./../images/stepsBlob3.png";
 import stepsBlob1 from "./../images/stepsBlob1.png";
 import stepsBlob4 from "./../images/stepsBlob4.png";
 import stepsBlob5 from "./../images/stepsBlob5.png";
+import landingProfileGirlTwo from "./../images/landingProfileGirlTwo.png";
+import landingProfileMen from "./../images/landingProfileMen.png";
 
 export {
   bg,
@@ -26,4 +28,6 @@ export {
   stepsBlob3,
   stepsBlob4,
   stepsBlob5,
+  landingProfileGirlTwo,
+  landingProfileMen,
 };

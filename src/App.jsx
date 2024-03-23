@@ -11,22 +11,25 @@ import Contact from "./pages/Contact";
 import StepsModal from "./components/modal/StepsModal";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import SmoothScroll from "./components/global/SmoothScroll";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <StepsModal />
-        <Header />
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/funding-options" element={<FundingOptions />} />
-          <Route path="/referral-engine" element={<ReferralEngine />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
+        <SmoothScroll>
+          <StepsModal />
+          <Header />
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/funding-options" element={<FundingOptions />} />
+            <Route path="/referral-engine" element={<ReferralEngine />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </SmoothScroll>
       </BrowserRouter>
     </>
   );
