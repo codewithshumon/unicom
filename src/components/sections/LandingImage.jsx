@@ -10,31 +10,38 @@ import {
 
 const LandingImage = () => {
   useEffect(() => {
-    const process = document.querySelector(".image-section");
-    let sections = gsap.utils.toArray(".image-item");
-
     gsap.registerPlugin(ScrollTrigger);
 
-    {
-      if (typeof process != "undefined" && process != null) {
-        gsap.to(sections, {
-          xPercent: -100 * (sections.length - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: process,
-            markers: false,
-            scrub: 1,
-            pin: true,
-            snap: 1 / (sections.length - 1),
-            end: () => "+=" + process.offsetWidth,
-          },
-        });
-      }
-    }
-  });
+    const animateSections = () => {
+      let sections = gsap.utils.toArray(".image-item");
+      const imageSection = document.querySelector(".image-section");
+
+      if (!imageSection) return;
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".image-section",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (sections.length - 1),
+          end: () => "+=" + imageSection.offsetWidth,
+        },
+      });
+    };
+
+    animateSections();
+
+    return () => {
+      // Clean up ScrollTrigger instances
+      ScrollTrigger.getAll().forEach((instance) => instance.kill());
+    };
+  }, []);
+
   return (
-    <div className="image-section w-full h-full relative bg-red-400">
-      <div className=" w-[300vw] h-full overflow-hidden flex">
+    <div className="w-full h-full relative overflow-hidden">
+      <div className="image-section w-[300vw] h-full overflow-hidden flex">
         <div className="image-item">
           <img
             src={landingProfileGirl}
